@@ -3,7 +3,7 @@
 - 连接到服务端，`python -m jupyter notebook --no-browser --port={port}` 打开jupyter内核服务
   ![image](pics/01.png)
 - 在cmd下，`ssh -N -L 8080:localhost:{port} {username}@{ip}` 不执行远程命令并且将服务器端口转发到本地端口8080，你也可
-以自行设置。
+以自行设置。  
   ![image](pics/02.png)
 - 在本地浏览器下，`localhost:8080`就可以开始使用jupyter了
 具体的jupyter使用规则不再赘述。
