@@ -8,18 +8,27 @@
 `xfs_quota -x -c 'print'`  
 如果看到某个文件系统的路径名后有括号标注的`(uquota, gquota/pquota)`，证明(用户配额，用户组配额
 /目录配额)的标记在这个文件系统是存在的(不一定是打开，且其中gquota/pquota只能同时存在一个)。如果没有该标注，需要重新挂载
-磁盘并且启用quota支持，详细见重挂载并启用quota。 
+磁盘并且启用quota支持，详细见重挂载并启用quota。  
+<center>
+
 ![image](pics/01.png)
+</center>
 
 ## 查看文件系统配额是否打开
 `xfs_quota -x -c 'state'`  
 可以看到，`User quota state on /home`下，`Accounting: ON`表示`user quota`即用户配额是启动状态
-的，如果`Accounting: OFF`表示就是关闭的状态。 
+的，如果`Accounting: OFF`表示就是关闭的状态。  
+<center>
+
 ![image](pics/02.png)
+</center>
 
 ## 查看文件系统配额情况
-`xfs_quota -x -c "report -ubih" /home` `hard`就是最大限额，`soft`只是用户超过这个额度就会报警，但仍可以继续使用至`hard`  
+`xfs_quota -x -c "report -ubih" /home` `hard`就是最大限额，`soft`只是用户超过这个额度就会报警，但仍可以继续使用至`hard`
+<center>
+
 ![image](pics/03.png)
+</center>
 
 ## 对用户启用配额
 `xfs_quota -x -c "limit -u bsoft=1800M bhard=2000M username" /home`，如果有要求配额索引节点，则类似块节点`bsoft/bhard`
@@ -44,6 +53,9 @@
     - 临时 `mount -o remount,usrquota,grpquota/prjquota /home`
     - 永久 `vim /etc/fstab`，在`/home`文件系统`default`后添加`,usrquota,grpquota/prjquota`
       再重新挂载`/home`  
+      <center>
+
       ![image](pics/04.png)
+      </center>
     这时候使用`xfs_quota -x -c 'print'`打印看是否成功，如果没有就需要卸载`/home`再重新挂载。如果遇到有用户的进程在使用
     设备(device is busy)，少的话可以按`pid`杀死，多的话就使用`killall -u username`
