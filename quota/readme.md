@@ -17,6 +17,7 @@
 
 ## 查看文件系统配额情况
 `xfs_quota -x -c "report -ubih" /home` `hard`就是最大限额，`soft`只是用户超过这个额度就会报警，但仍可以继续使用至`hard`
+![image](pics/01.png)
 
 ## 对用户启用配额
 `xfs_quota -x -c "limit -u bsoft=1800M bhard=2000M username" /home`，如果有要求配额索引节点，则类似块节点`bsoft/bhard`
