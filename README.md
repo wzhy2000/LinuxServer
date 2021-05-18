@@ -48,16 +48,17 @@ TODO
 - 使用shell工具传输
 
 ## 如何备份数据？
+TODO
 
 ## 分区
-用户与用户组操作见user_group目录
+用户与用户组操作见[user_group](https://github.com/wzhy2000/LinuxServer/tree/main/user_group)
 
-磁盘配额操作见quota目录
+磁盘配额操作见[quota](https://github.com/wzhy2000/LinuxServer/tree/main/quota)
 
-jupyter使用操作见jupyter目录
+jupyter使用操作见[jupyter](https://github.com/wzhy2000/LinuxServer/tree/main/jupyter)
 
-screen操作见screen目录
+screen操作见[screen](https://github.com/wzhy2000/LinuxServer/tree/main/screen)
 
-GPU操作见GPU目录
+GPU操作见[GPU](https://github.com/wzhy2000/LinuxServer/tree/main/GPU)
 
-多核并行程序写法见parallel目录
+多核并行程序写法见[parallel](https://github.com/wzhy2000/LinuxServer/tree/main/parallel)
