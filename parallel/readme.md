@@ -2,14 +2,14 @@
 如果你执行的只是很小的程序，可能单核便能满足你的要求。但是如果你要运行很大的数据类型，比如生物信息学，比如图像的预处理等，
 这些如果单核处理起来会非常废时间，这个时候就需要使用CPU的多核并行技术来提升效率。
 使用`htop`命令就可以看到服务器的核运行情况。
-![image](pics/01.png)
+![image](pics/01.png)  
 可以看出，64核的CPU很多核都没有利用起来。
 
 ## Python多核并行
 Python默认的多进程、多线程库`multiprocessing and threading`很好用，如果你用的是Python默认的解析器(CPython)，那么你只能放弃使用`threading`库，因为GIL的存在，多线程会让你的Python程序跑的比单线程还慢。当然，如果你使用的是JPython解析器，或者说你的解析器没有GIL对你程序的影响，那么你可以尝试去使用多线程。[更多信息](http://cenalulu.github.io/python/gil-in-python/)
 
 那么这里只讲述Python库`multiprocessing`。  
-讲怎么使用之前，需要先明确一个概念。由于`multiprocessing`是一个创建多进程的库，那么如果你要调用的函数在同一个`.py`文件下运行的话是不可以的，你的分配给进程的函数需要通过`import`导入。例如：  
+讲怎么使用之前，需要先明确一个概念。由于`multiprocessing`是一个创建多进程的库，那么如果你要调用的函数在同一个`.py`文件下运行的话是不可以的，你分配给进程的函数需要通过`import`导入。例如：  
 ```
 import multiprocessing
 def f(x):
@@ -38,6 +38,7 @@ print(pool.map(f, y))   # [0, 1, 4, 9, 16]
 ```
 这样做的目的是为了进程安全，[更多信息](https://docs.python.org/3/library/multiprocessing.html#multiprocessing-programming)  
 那么，明确了这个问题之后，开始讲一下`multiprocessing`如何使用。  
+### Pool对象
 Python提供了非常简单的`Pool`对象来实现进程池。
 ```
 pool = multiprocessing.Pool(processes=5)    # 创建进程池，并且容纳上限为5个进程。
@@ -84,7 +85,7 @@ process 96303
 process 96304
 ```
 这是创建进程对象并且让他自己打印自己的PID，为了防止输出的数据是乱序的，这里加了一把进程锁`lock = multiprocessing.Lock()`，只有拿到锁的进程才能够打印自己的PID。  
-`Pipe`和`Queue`：  
+### `Pipe`和`Queue`：  
 和名字一样，分别对应操作系统中的管道和消息队列。看两个例子：
 ```
 import multiprocessing as mul
