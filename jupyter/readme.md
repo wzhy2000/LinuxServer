@@ -7,7 +7,7 @@
   查看监听端口，如下图所示  
   ![image](pics/05.png)  
   可以在`Local Address`栏下查看所有已经占用本地端口，比如第一行的`127.0.0.1:33965`中33965就是被占用的端口。
-- 连接到服务端，键入`python -m jupyter notebook --no-browser --port={port}` 打开jupyter内核服务，`port`选用第一步不会冲突的端口。
+- 连接到服务端，键入`python -m jupyter notebook --no-browser --port={port}` 打开jupyter内核服务，`port`选用第一步不会冲突的端口。  
   ![image](pics/01.png)
 - 在本地cmd下，键入`ssh -N -L 8080:localhost:{port} {username}@{ip}` 意思是不执行远程命令并且将服务器端口转发到本地端口8080，你也可以自行设置转发到本地的端口号。  
   ![image](pics/02.png)
