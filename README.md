@@ -69,16 +69,15 @@ TODO
     ```
     基本只是换一下顺序，效果和本地上传服务器一致。
   [更多使用信息](https://www.runoob.com/linux/linux-comm-scp.html)
-- 使用ftp工具FileZilla传输  
-  [下载地址](https://www.filezilla.cn/download/client)  
+- 使用ftp工具[FileZilla](https://www.filezilla.cn/download/client)传输 
   这个工具需要配置一下ssh，ssh的配置方法前面有说，
-  [详见](https://github.com/wzhy2000/LinuxServer#%E6%A0%A1%E5%86%85ssh%E6%96%B9%E6%B3%95)  
+  [详见校内ssh方法](https://github.com/wzhy2000/LinuxServer#%E6%A0%A1%E5%86%85ssh%E6%96%B9%E6%B3%95)  
   之后便是整个文件系统的可视化界面，操作十分简单，就不再赘述。
 - 使用shell工具传输
-  Windows自带的PowerShell也可以使用，这里推荐FinalShell [下载地址](https://www.hostbuf.com)，选择如图所示的链接。  
+  Windows自带的PowerShell也可以使用，这里推荐[FinalShell](https://www.hostbuf.com)，选择如图所示的链接。  
   ![image](pics/04.png)  
   然后选择你的操作系统对应的版本。  
-  shell工具除了能够传输文件之外，还能够使用更加用户友好型的界面来进行服务器操作。
+  shell工具除了能够传输文件之外，还能够使用更加用户友好型的界面来进行服务器操作。配置好你的SSH之后你便可以开始使用。
 
 ## 如何备份数据？
 ```
@@ -103,14 +102,10 @@ rsync [-av|--delete|--exclude=PATTERN] {SRC} {DEST}
 
 
 ## 其他操作分区
-用户与用户组操作见[user_group](https://github.com/wzhy2000/LinuxServer/tree/main/administrator/user_group)
-
-磁盘配额操作见[quota](https://github.com/wzhy2000/LinuxServer/tree/main/administrator/quota)
-
-jupyter使用操作见[jupyter](https://github.com/wzhy2000/LinuxServer/tree/main/jupyter)
-
-screen操作见[screen](https://github.com/wzhy2000/LinuxServer/tree/main/screen)
-
-GPU操作见[GPU](https://github.com/wzhy2000/LinuxServer/tree/main/GPU)
-
-多核并行程序写法见[parallel](https://github.com/wzhy2000/LinuxServer/tree/main/parallel)
+- jupyter使用操作见[jupyter](https://github.com/wzhy2000/LinuxServer/tree/main/jupyter)
+- screen操作见[screen](https://github.com/wzhy2000/LinuxServer/tree/main/screen)
+- GPU操作见[GPU](https://github.com/wzhy2000/LinuxServer/tree/main/GPU)
+- 多核并行程序写法见[parallel](https://github.com/wzhy2000/LinuxServer/tree/main/parallel)
+仅管理员可用：
+- 用户与用户组操作见[user_group](https://github.com/wzhy2000/LinuxServer/tree/main/administrator/user_group)
+- 磁盘配额操作见[quota](https://github.com/wzhy2000/LinuxServer/tree/main/administrator/quota)
