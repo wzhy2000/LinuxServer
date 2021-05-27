@@ -38,7 +38,7 @@ print(pool.map(f, y))   # [0, 1, 4, 9, 16]
 ```
 这样做的目的是为了进程安全，[更多信息](https://docs.python.org/3/library/multiprocessing.html#multiprocessing-programming)  
 那么，明确了这个问题之后，开始讲一下`multiprocessing`如何使用。  
-### Pool对象
+### `Pool`对象
 Python提供了非常简单的`Pool`对象来实现进程池。
 ```
 pool = multiprocessing.Pool(processes=5)    # 创建进程池，并且容纳上限为5个进程。
@@ -46,6 +46,7 @@ pool = multiprocessing.Pool(processes=5)    # 创建进程池，并且容纳上�
 而`pool.map(f, y)`是对可迭代对象`y`的每个对象均使用一次`f`函数，并返回每次执行后的数据列表。
 与`pool.map()`相似的还有`pool.imap()`和`pool.imap_unordered()`，不同的是后面两个返回的都是迭代器，而最后一个和名字一样，返回的数据是无序的。
 
+### `Process`对象
 接下来看下面一个例子：
 ```
 import os
