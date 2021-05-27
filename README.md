@@ -15,25 +15,26 @@ TODO
 |         RAM        |                   4*32G DDR4                 |
 |        Cache       |              730i Raid 0,1,5 w/1GB           |
 | Node-local storage |               480GB SSD + 8T HDD             |
-|                    |                                              |
 
-- cuda版本为11.0，cudnn版本为8.0.5
-- torch版本为1.8.1，tensorflow版本为2.4.0
-- docker版本为20.10.6
-- 可以使用jupyter工作
+- CUDA版本为11.0，cuDNN版本为8.0.5
+- pyTorch版本为1.8.1，TensorFlow版本为2.4.0
+- Docker版本为20.10.6
+- 可以使用Jupyter工作
 
 ## 使用规则
 TODO
 
 ## 校内ssh方法
-目前ip是校内分配的ip，校外是无法访问的。不过你可以使用大工vpn尝试校外访问。TODO
+目前ip是校内分配的ip，校外是无法访问的。大工vpn目前也无法校外访问，校内政策如此。
 现在的ip=210.30.97.81  
-`ssh username@{210.30.97.81}`  
-第一次访问可能会有网络信任确认TODO
+```
+ssh username@{210.30.97.81}
+```
+第一次访问可能会有网络信任确认，这个时候你选择yes就会永久保存，以后访问便不会有这个提示。
 
 ## 文件系统
 目前给每人分配在固态硬盘上的工作空间是2GB，如果使用比较庞大的数据集，请放在/local上，使用者请自行建立自己的目录，根目录TOD。硬盘结构如下图或者键入`lsblk`所示：  
-![image](/pics/01.png)  
+![image](pics/01.png)  
 - `sda` 为480GB固态硬盘，`sdb`为8T机械硬盘。
 - `/home`即所有用户的工作目录，在这个目录下每个用户会分配以你的名字命名的文件夹和2GB的工作空间。你可以把程序、小容量数据
 集、配置文件存入你的工作空间里以更快的加载程序。
@@ -45,17 +46,59 @@ TODO
 `pip install [--user/-u] package-name`  
 默认安装在你的工作目录/.local下。
 
-### 安装
+### 安装R
+TODO
 
 ## 如何传输文件？
-- `scp` TODO
-- 使用ftp工具FileZilla传输
-- 使用powershell TODO
+- `scp` 在本地cmd上，可以直接通过scp命令传输文件和文件夹。
+  - 从本地上传到服务器
+    ```
+    scp [-r] {local_file_path} {username}@210.30.97.81:{file_path}
+    ```
+    例子：  
+    ![image](pics/02.png)  
+    如果想要把文件夹整个上传到服务器，那么加上参数`-r`即可。  
+    例子：  
+    ![image](pics/03.png)
+  - 从远程下载到本地
+    ```
+    scp [-r] {username}@210.30.97.81:{remote_file_path} {local_file_path}
+    ```
+    基本只是换一下顺序，效果和本地上传服务器一致。
+  [更多使用信息](https://www.runoob.com/linux/linux-comm-scp.html)
+- 使用ftp工具FileZilla传输  
+  [下载地址](https://www.filezilla.cn/download/client)  
+  这个工具需要配置一下ssh，ssh的配置方法前面有说，TODO[详见](https://github.com/wzhy2000/LinuxServer/)  
+  之后便是整个文件系统的可视化界面，操作十分简单，就不再赘述。
 - 使用shell工具传输
+  Windows自带的PowerShell也可以使用，这里推荐FinalShell [下载地址](https://www.hostbuf.com)，选择如图所示的链接。  
+  ![image](pics/04.png)  
+  然后选择你的操作系统对应的版本。  
+  shell工具除了能够传输文件之外，还能够使用更加用户友好型的界面来进行服务器操作。
 
 ## 如何备份数据？
-- rsync TODO
-TODO
+```
+rsync [-av|--delete|--exclude=PATTERN] {SRC} {DEST}
+```
+- `-a` 归档模式，递归模式传输文件，并保留所有文件属性。
+- `-v` 打印信息，比如文件列表文件数量。
+- `--delete` 删除目标目录下源目录没有的文件。
+- `--exclude=PATTERN` 排除不需要传输的文件。
+- `SRC` 源目录
+- `DEST` 目标目录
+
+例子： 
+![image](pics/05.png)  
+注意：例子中使用的`SRC=tmp/`，加`/`的目的是为了把该目录下的所有文件备份至`tmp1/`目录下。所以`/`是很有必要的。
+
+如果源目录下删除了一些文件，那么就需要用`--delete`来删除备份目录下冗余的文件。  
+例子：  
+![image](pics/06.png)  
+
+如果你想排除不想传输的文件，则使用`exclude=PATTERN`来备份。  
+例子：  
+![image](pics/07.png)
+
 
 ## 分区
 用户与用户组操作见[user_group](https://github.com/wzhy2000/LinuxServer/tree/main/user_group)

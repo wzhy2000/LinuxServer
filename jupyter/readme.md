@@ -1,5 +1,5 @@
 # 使用Jupyter工作吧！
-服务器目前支持jupyter进行工作，使用方法如下：
+服务器目前支持Jupyter进行工作，使用方法如下：
 - 连接到服务端，`python -m jupyter notebook --no-browser --port={port}` 打开jupyter内核服务
   TODO port冲突 netstat -tlnp 查看监听端口
   ![image](pics/01.png)
