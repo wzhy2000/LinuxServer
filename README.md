@@ -46,8 +46,10 @@ ssh username@210.30.97.81
 ## 安装
 
 ### 安装python-package
-`pip install [--user/-u] package-name`  
-默认安装在你的工作目录/.local下。
+```
+pip install [--user/-u] package-name
+```
+默认安装在`~/.local`下。
 
 ### 安装R
 TODO
@@ -106,6 +108,7 @@ rsync [-av|--delete|--exclude=PATTERN] {SRC} {DEST}
 - screen操作见[screen](https://github.com/wzhy2000/LinuxServer/tree/main/screen)
 - GPU操作见[GPU](https://github.com/wzhy2000/LinuxServer/tree/main/GPU)
 - 多核并行程序写法见[parallel](https://github.com/wzhy2000/LinuxServer/tree/main/parallel)  
+  
 仅管理员可用：
 - 用户与用户组操作见[user_group](https://github.com/wzhy2000/LinuxServer/tree/main/administrator/user_group)
 - 磁盘配额操作见[quota](https://github.com/wzhy2000/LinuxServer/tree/main/administrator/quota)
