@@ -57,7 +57,7 @@ TODO
   在本地cmd上，可以直接通过scp命令传输文件和文件夹。
   - 从本地上传到服务器
     ```
-    scp [-r] {local_file_path} {username}@210.30.97.81:{file_path}
+    scp [-r] {local_file_path} {username}@210.30.97.81:{remote_file_path}
     ```
     例子：  
     ![image](pics/02.png)  
@@ -68,8 +68,7 @@ TODO
     ```
     scp [-r] {username}@210.30.97.81:{remote_file_path} {local_file_path}
     ```
-    基本只是换一下顺序，效果和本地上传服务器一致。
-  [更多使用信息](https://www.runoob.com/linux/linux-comm-scp.html)
+    基本只是换一下顺序，效果和本地上传服务器一致。[更多使用信息](https://www.runoob.com/linux/linux-comm-scp.html)
 - 使用ftp工具[FileZilla](https://www.filezilla.cn/download/client)传输  
   这个工具需要配置一下ssh，ssh的配置方法前面有说，
   [详见校内ssh方法](https://github.com/wzhy2000/LinuxServer#%E6%A0%A1%E5%86%85ssh%E6%96%B9%E6%B3%95)  
@@ -106,7 +105,7 @@ rsync [-av|--delete|--exclude=PATTERN] {SRC} {DEST}
 - jupyter使用操作见[jupyter](https://github.com/wzhy2000/LinuxServer/tree/main/jupyter)
 - screen操作见[screen](https://github.com/wzhy2000/LinuxServer/tree/main/screen)
 - GPU操作见[GPU](https://github.com/wzhy2000/LinuxServer/tree/main/GPU)
-- 多核并行程序写法见[parallel](https://github.com/wzhy2000/LinuxServer/tree/main/parallel)
+- 多核并行程序写法见[parallel](https://github.com/wzhy2000/LinuxServer/tree/main/parallel)  
 仅管理员可用：
 - 用户与用户组操作见[user_group](https://github.com/wzhy2000/LinuxServer/tree/main/administrator/user_group)
 - 磁盘配额操作见[quota](https://github.com/wzhy2000/LinuxServer/tree/main/administrator/quota)
