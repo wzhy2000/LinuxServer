@@ -25,7 +25,7 @@ TODO
 TODO
 
 ## 校内ssh方法
-目前ip是校内分配的ip，校外是无法访问的。大工vpn目前也无法校外访问，校内政策如此。
+目前ip是校内分配的ip，校外是无法访问的。大工VPN目前也无法校外访问，校内政策如此。
 现在的ip=210.30.97.81  
 ```
 ssh username@{210.30.97.81}
@@ -33,7 +33,8 @@ ssh username@{210.30.97.81}
 第一次访问可能会有网络信任确认，这个时候你选择yes就会永久保存，以后访问便不会有这个提示。
 
 ## 文件系统
-目前给每人分配在固态硬盘上的工作空间是2GB，如果使用比较庞大的数据集，请放在/local上，使用者请自行建立自己的目录，根目录TOD。硬盘结构如下图或者键入`lsblk`所示：  
+目前给每人分配在固态硬盘上的工作空间是2GB，如果使用比较庞大的数据集，请放在/local上，使用者请自行建立自己的目录，根目录TODO。
+硬盘结构如下图或者键入`lsblk`所示：  
 ![image](pics/01.png)  
 - `sda` 为480GB固态硬盘，`sdb`为8T机械硬盘。
 - `/home`即所有用户的工作目录，在这个目录下每个用户会分配以你的名字命名的文件夹和2GB的工作空间。你可以把程序、小容量数据
@@ -68,7 +69,8 @@ TODO
   [更多使用信息](https://www.runoob.com/linux/linux-comm-scp.html)
 - 使用ftp工具FileZilla传输  
   [下载地址](https://www.filezilla.cn/download/client)  
-  这个工具需要配置一下ssh，ssh的配置方法前面有说，TODO[详见](https://github.com/wzhy2000/LinuxServer/)  
+  这个工具需要配置一下ssh，ssh的配置方法前面有说，
+  [详见](https://github.com/wzhy2000/LinuxServer#%E6%A0%A1%E5%86%85ssh%E6%96%B9%E6%B3%95)  
   之后便是整个文件系统的可视化界面，操作十分简单，就不再赘述。
 - 使用shell工具传输
   Windows自带的PowerShell也可以使用，这里推荐FinalShell [下载地址](https://www.hostbuf.com)，选择如图所示的链接。  
@@ -81,7 +83,7 @@ TODO
 rsync [-av|--delete|--exclude=PATTERN] {SRC} {DEST}
 ```
 - `-a` 归档模式，递归模式传输文件，并保留所有文件属性。
-- `-v` 打印信息，比如文件列表文件数量。
+- `-v` 打印信息，比如文件列表、文件数量。
 - `--delete` 删除目标目录下源目录没有的文件。
 - `--exclude=PATTERN` 排除不需要传输的文件。
 - `SRC` 源目录
@@ -92,18 +94,16 @@ rsync [-av|--delete|--exclude=PATTERN] {SRC} {DEST}
 注意：例子中使用的`SRC=tmp/`，加`/`的目的是为了把该目录下的所有文件备份至`tmp1/`目录下。所以`/`是很有必要的。
 
 如果源目录下删除了一些文件，那么就需要用`--delete`来删除备份目录下冗余的文件。  
-例子：  
 ![image](pics/06.png)  
 
 如果你想排除不想传输的文件，则使用`exclude=PATTERN`来备份。  
-例子：  
 ![image](pics/07.png)
 
 
-## 分区
-用户与用户组操作见[user_group](https://github.com/wzhy2000/LinuxServer/tree/main/user_group)
+## 其他操作分区
+用户与用户组操作见[user_group](https://github.com/wzhy2000/LinuxServer/tree/main/administrator/user_group)
 
-磁盘配额操作见[quota](https://github.com/wzhy2000/LinuxServer/tree/main/quota)
+磁盘配额操作见[quota](https://github.com/wzhy2000/LinuxServer/tree/main/administrator/quota)
 
 jupyter使用操作见[jupyter](https://github.com/wzhy2000/LinuxServer/tree/main/jupyter)
 
