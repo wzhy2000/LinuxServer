@@ -53,7 +53,8 @@ ssh username@210.30.97.81
 TODO
 
 ## 如何传输文件？
-- `scp` 在本地cmd上，可以直接通过scp命令传输文件和文件夹。
+- `scp`  
+  在本地cmd上，可以直接通过scp命令传输文件和文件夹。
   - 从本地上传到服务器
     ```
     scp [-r] {local_file_path} {username}@210.30.97.81:{file_path}
@@ -69,11 +70,11 @@ TODO
     ```
     基本只是换一下顺序，效果和本地上传服务器一致。
   [更多使用信息](https://www.runoob.com/linux/linux-comm-scp.html)
-- 使用ftp工具[FileZilla](https://www.filezilla.cn/download/client)传输 
+- 使用ftp工具[FileZilla](https://www.filezilla.cn/download/client)传输  
   这个工具需要配置一下ssh，ssh的配置方法前面有说，
   [详见校内ssh方法](https://github.com/wzhy2000/LinuxServer#%E6%A0%A1%E5%86%85ssh%E6%96%B9%E6%B3%95)  
   之后便是整个文件系统的可视化界面，操作十分简单，就不再赘述。
-- 使用shell工具传输
+- 使用shell工具传输  
   Windows自带的PowerShell也可以使用，这里推荐[FinalShell](https://www.hostbuf.com)，选择如图所示的链接。  
   ![image](pics/04.png)  
   然后选择你的操作系统对应的版本。  
